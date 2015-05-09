@@ -14,8 +14,6 @@ ENV_DIR=$3
 
 . $BIN_DIR/../lib/utils
 
-export_env_dir $ENV_DIR
-
 #create the cache dir if it doesn't exist
 mkdir -p $CACHE_DIR
 
@@ -23,19 +21,9 @@ statusn "Installing JDK..."
 install_java $CACHE_DIR $BUILD_DIR
 echo " version $(java_version) installed"
 
-if [ "true" = "$JCE" ]; then
-  statusn "Installing JCE Unlimited Strength..."
-  install_jce
-  echo " done"
-fi
-
-create_profile $BUILD_DIR
-
-status "Cleaning enviroment"
-clean_environment $CACHE_DIR
-
 status "install minecraft"
-wget -O $BUILD_DIR/minecraft.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.8.4/minecraft_server.1.8.4.jar
+MINECRAFT_DOWNLOAD_URL=`cat $BUILD_DIR/minecraft_download_url.txt`
+wget -O $BUILD_DIR/minecraft.jar $MINECRAFT_DOWNLOAD_URL
 
 status "install chisel"
-wget -O $BUILD_DIR/chisel https://github.com/morikat/chisel/raw/master/chisel-bin/chisel_linux_amd64
+wget --no-check-certificate -O $BUILD_DIR/chisel https://github.com/morikat/chisel/raw/master/chisel-bin/chisel_linux_amd64 
