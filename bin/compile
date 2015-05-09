@@ -29,12 +29,10 @@ if [ "true" = "$JCE" ]; then
   echo " done"
 fi
 
-if [ -n "$GEMS" ]; then
-  status "Installing Gems..."
-  install_gems $CACHE_DIR $GEMS
-fi
-
 create_profile $BUILD_DIR
 
 status "Cleaning enviroment"
 clean_environment $CACHE_DIR
+
+status "install minecraft"
+wget -O $BUILD_DIR/minecraft.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.8.4/minecraft_server.1.8.4.jar
