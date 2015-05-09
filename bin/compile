@@ -34,6 +34,7 @@ if [ -n "$GEMS" ]; then
   install_gems $CACHE_DIR $GEMS
 fi
 
+create_profile $BUILD_DIR
 
 status "Cleaning enviroment"
 clean_environment $CACHE_DIR
