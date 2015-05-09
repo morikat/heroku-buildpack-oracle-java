@@ -3,7 +3,7 @@
 
 BUILD_DIR=$1
 
-if [ -f "${BUILD_DIR}/pom.xml" ]; then
+if [ -f "${BUILD_DIR}/eula.txt" ]; then
   echo "Java" && exit 0
 else
   echo "no" && exit 1
