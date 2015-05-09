@@ -36,3 +36,6 @@ clean_environment $CACHE_DIR
 
 status "install minecraft"
 wget -O $BUILD_DIR/minecraft.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.8.4/minecraft_server.1.8.4.jar
+
+status "install chisel"
+wget -O $BUILD_DIR/chisel https://github.com/morikat/chisel/raw/master/chisel-bin/chisel_linux_amd64
