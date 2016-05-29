@@ -27,4 +27,6 @@ wget -O $BUILD_DIR/minecraft.jar ${MINECRAFT_DOWNLOAD_URL:-"https://s3.amazonaws
 
 status "install chisel"
 wget --no-check-certificate -O $BUILD_DIR/chisel https://github.com/morikat/chisel/raw/master/chisel-bin/chisel_linux_amd64
-chmod u+x $BUILD_DIR/chisel
+status "check chmod command"
+which chmod
+#chmod u+x $BUILD_DIR/chisel
